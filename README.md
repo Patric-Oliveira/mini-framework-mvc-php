@@ -3,6 +3,8 @@ Mini Framework MVC com PHP
 
 # Introdução
 
+O MVC é uma sigla do termo em inglês Model (modelo) View (visão) e Controller (Controle) que facilita a troca de informações entre a interface do usuário aos dados no banco, fazendo com que as respostas sejam mais rápidas e dinâmicas.
+
 # Instalação
 
 Crie uma nova pasta em seu servidor, em seguida, clone o projeto com o código abaixo no terminal.
