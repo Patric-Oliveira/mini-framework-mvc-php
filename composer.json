@@ -1,0 +1,23 @@
+{
+    "name": "patric/mini-framework-mvc-php",
+    "description": "Mini Framework MVC com PHP",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Patric Oliveira",
+            "email": "patric.eng.computation@gmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^3.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files": [
+            "app/Config/Config.php",
+            "app/Functions/Global.php"
+        ]
+    }
+}
