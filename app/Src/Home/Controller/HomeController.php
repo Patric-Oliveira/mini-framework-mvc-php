@@ -13,9 +13,4 @@ class HomeController
     {
         echo 'Index Home - Main';
     }
-
-    public function other()
-    {
-        echo 'Other Home - Main';
-    }
 }

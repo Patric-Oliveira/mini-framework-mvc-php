@@ -4,11 +4,6 @@ namespace App\Src\Home\Controller;
 
 class ProdutoController
 {
-    public function __construct()
-    {
-        echo 'Construtor Produto - Main';
-    }
-
     public function index()
     {
         echo 'Index Produto - Main';
@@ -16,6 +11,6 @@ class ProdutoController
 
     public function listar()
     {
-        echo 'Other Produto - Main';
+        echo 'Listar Produto - Main';
     }
 }

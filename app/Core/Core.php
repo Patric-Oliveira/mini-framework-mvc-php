@@ -14,9 +14,15 @@ class Core
      */
     public function __construct()
     {
+        $uri = $_SERVER['REQUEST_URI'];
+        
+        if (strpos($uri, '?')) {
+            $uri = substr($uri, 0, strpos($uri, '?'));
+        }
+            
         // Quebra a string nas barras e converte para um array 
         // Remove indices em branco e reestrutura a ordem
-        $this->explodeURI = array_values(array_filter(explode('/', $_SERVER['REQUEST_URI'])));
+        $this->explodeURI = array_values(array_filter(explode('/', $uri)));
 
         // Verifica quantos parâmetros da url precisa ser removido 
         for ($i = 0; $i < REMOVE_INDEX; $i++) {
@@ -55,13 +61,23 @@ class Core
         return 'Home';
     }
 
+     /**
+     * Executa a controladora chamando o método e passando os parâmetros
+     *
+     * @return void
+     */
     private function execute()
     {
         $controller = $this->getController();
         $method = $this->getMethod($controller);
 
-        //$this->getParams()
-
+        call_user_func_array(
+            [
+                new $controller,
+                $method
+            ],
+            $this->getParams()
+        );
     }
     
     /**
@@ -86,6 +102,12 @@ class Core
         
     }
 
+     /**
+     * Retorna o método válido a ser utilizado.
+     * 
+     * @param  mixed $controller Recebe o caminho da controladora
+     * @return string Retorna o método Index caso o informado na URI seja inválido ou não exista
+     */
     private function getMethod($controller) : string
     {
         if (!isset($this->explodeURI[1])) {
@@ -98,6 +120,11 @@ class Core
         return $this->explodeURI[1];
     }
 
+     /**
+     * Retorna a lista de parâmetros da URL 
+     *
+     * @return array
+     */
     private function getParams() : array
     {
         if (!isset($this->explodeURI[2])) {
