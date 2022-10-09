@@ -2,9 +2,10 @@
 
 namespace App\Core;
 
-class Controller
+class Core
 {
     public function __construct()
     {
+        dd($_SERVER['REQUEST_URI']);
     }
 }
