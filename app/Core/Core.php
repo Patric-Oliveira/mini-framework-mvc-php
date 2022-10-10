@@ -62,7 +62,7 @@ class Core
     }
 
      /**
-     * Executa a controladora chamando o método e passando os parâmetros
+     * Executa o controlador chamando o método e passando os parâmetros
      *
      * @return void
      */
